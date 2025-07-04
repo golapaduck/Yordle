@@ -25,20 +25,41 @@
 # 프로젝트 파일
 !Y_C1/*.uproject
 
-# Y_S 서버 프로젝트 디렉토리 관리
-# 소스 코드
-!Y_S/src/**
-!Y_S/include/**
-# 빌드 설정 파일
-!Y_S/CMakeLists.txt
-!Y_S/Makefile
-!Y_S/*.sln
-!Y_S/*.vcxproj
-!Y_S/*.vcxproj.filters
-# 문서 파일
-!Y_S/docs/**
-# 설정 파일
-!Y_S/config/**
+# Server 서버 프로젝트 디렉토리 관리
+# 소스 코드 및 프로젝트 파일
+!Server/*.sln
+!Server/Server.sln
+# ServerCore
+!Server/ServerCore/**/*.cpp
+!Server/ServerCore/**/*.h
+!Server/ServerCore/**/*.rc
+!Server/ServerCore/**/*.vcxproj
+!Server/ServerCore/**/*.vcxproj.filters
+# GameServer
+!Server/GameServer/**/*.cpp
+!Server/GameServer/**/*.h
+!Server/GameServer/**/*.pb.cc
+!Server/GameServer/**/*.pb.h
+!Server/GameServer/**/*.vcxproj
+!Server/GameServer/**/*.vcxproj.filters
+# DummyClient
+!Server/DummyClient/**/*.cpp
+!Server/DummyClient/**/*.h
+!Server/DummyClient/**/*.pb.cc
+!Server/DummyClient/**/*.pb.h
+!Server/DummyClient/**/*.vcxproj
+!Server/DummyClient/**/*.vcxproj.filters
+# Common
+!Server/Common/**
+# Tools
+!Server/Tools/**/*.cpp
+!Server/Tools/**/*.h
+!Server/Tools/**/*.cs
+!Server/Tools/**/*.csproj
+# Libraries - 필요한 헤더 파일만 포함
+!Server/Libraries/Include/**/*.h
+!Server/Libraries/Include/**/*.hpp
+!Server/Libraries/Libs/**/*.lib
 
 !.gitignore
 !.gitattributes
@@ -170,29 +191,23 @@ Y_C1/FileOpenOrder/
 Y_C1/DebugSymbols/
 
 # ================ #
-# Y_S 서버 프로젝트 #
+# Server 서버 프로젝트 #
 # ================ #
 
 # 빌드 결과물
-Y_S/build/
-Y_S/bin/
-Y_S/out/
-Y_S/Debug/
-Y_S/Release/
-Y_S/x64/
-Y_S/x86/
+Server/Binaries/**
+Server/**/x64/**
+Server/**/Debug/**
+Server/**/Release/**
 
-# 의존성 패키지
-Y_S/vendor/
-Y_S/packages/
-Y_S/deps/
-
-# IDE 설정 파일
-Y_S/.vscode/
-Y_S/.idea/
-Y_S/*.user
+# Visual Studio 관련 파일
+Server/.vs/**
+Server/**/*.user
+Server/**/*.aps
 
 # 자동 생성 파일
-Y_S/generated/
-Y_S/**/*.generated.h
-Y_S/**/*.generated.cpp
+Server/**/*.generated.*
+
+# 특정 파일 제외
+# protoc 바이너리 파일 (필요시 주석 처리)
+Server/Common/protoc-21.12-win64/bin/**
